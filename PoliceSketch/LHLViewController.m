@@ -24,7 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-  self.sketch = [[Sketch alloc] init];
+  self.sketch = [[Sketch alloc] initWithVariations:5];
 }
 
 #pragma mark - Actions

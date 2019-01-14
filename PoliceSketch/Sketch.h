@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(assign, nonatomic, readonly) int nose;
 @property(assign, nonatomic, readonly) int mouth;
 
+- (instancetype)initWithVariations:(int)numberOfVariations;
+
 - (void)next:(SketchSection) section;
 - (void)prev:(SketchSection) section;
 

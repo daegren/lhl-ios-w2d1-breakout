@@ -8,13 +8,20 @@
 
 #import "Sketch.h"
 
+@interface Sketch ()
+
+@property (assign, nonatomic) int numberOfVariations;
+
+@end
+
 @implementation Sketch
 
-- (instancetype)init {
+- (instancetype)initWithVariations:(int)numberOfVariations {
   if (self = [super init]) {
     _eyes = 0;
     _nose = 0;
     _mouth = 0;
+    _numberOfVariations = numberOfVariations;
   }
 
   return self;
@@ -87,19 +94,21 @@
 #pragma mark - Private Helpers
 
 - (int)nextValue:(int)value {
-  if (value + 1 > 4) {
-    return 0;
-  }
-
-  return value + 1;
+//  if (value + 1 > (self.numberOfVariations - 1)) {
+//    return 0;
+//  }
+//
+//  return value + 1;
+  return (value + 1) % self.numberOfVariations;
 }
 
 - (int)prevValue:(int)value {
-  if (value - 1 < 0) {
-    return 4;
-  }
-
-  return value - 1;
+//  if (value - 1 < 0) {
+//    return self.numberOfVariations - 1;
+//  }
+//
+//  return value - 1;
+  return (value - 1 < 0) ? self.numberOfVariations - 1 : value - 1;
 }
 
 @end
