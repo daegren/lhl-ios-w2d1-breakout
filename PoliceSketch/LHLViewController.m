@@ -12,8 +12,14 @@
 @interface LHLViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *eyesImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *noseImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *mouthImageView;
 
 @property(strong, nonatomic) Sketch *sketch;
+
+@property(strong, nonatomic) NSArray *eyesImages;
+@property(strong, nonatomic) NSArray *noseImages;
+@property(strong, nonatomic) NSArray *mouthImages;
 
 @end
 
@@ -24,6 +30,9 @@
     // Do any additional setup after loading the view, typically from a nib.
 
   self.sketch = [[Sketch alloc] init];
+  self.eyesImages = @[[UIImage imageNamed:@"eyes_1"],[UIImage imageNamed:@"eyes_2"],[UIImage imageNamed:@"eyes_3"],[UIImage imageNamed:@"eyes_4"],[UIImage imageNamed:@"eyes_5"]];
+  self.noseImages = @[[UIImage imageNamed:@"nose_1"],[UIImage imageNamed:@"nose_2"],[UIImage imageNamed:@"nose_3"],[UIImage imageNamed:@"nose_4"],[UIImage imageNamed:@"nose_5"]];
+  self.mouthImages = @[[UIImage imageNamed:@"mouth_1"],[UIImage imageNamed:@"mouth_2"],[UIImage imageNamed:@"mouth_3"],[UIImage imageNamed:@"mouth_4"],[UIImage imageNamed:@"mouth_5"]];
 }
 
 #pragma mark - Actions
@@ -38,11 +47,33 @@
   [self updateImageViews];
 }
 
+- (IBAction)noseNext:(id)sender {
+  [self.sketch nextNose];
+  [self updateImageViews];
+}
+
+- (IBAction)nosePrev:(id)sender {
+  [self.sketch prevNose];
+  [self updateImageViews];
+}
+
+- (IBAction)mouthNext:(id)sender {
+  [self.sketch nextMouth];
+  [self updateImageViews];
+}
+
+- (IBAction)mouthPrev:(id)sender {
+  [self.sketch prevMouth];
+  [self updateImageViews];
+}
+
 
 #pragma mark - Private Helpers
 
 - (void) updateImageViews {
-  self.eyesImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"eyes_%i", self.sketch.eyes + 1]];
+  self.eyesImageView.image = self.eyesImages[self.sketch.eyes];
+  self.noseImageView.image =  self.noseImages[self.sketch.nose];
+  self.mouthImageView.image = self.mouthImages[self.sketch.mouth];
 }
 
 @end

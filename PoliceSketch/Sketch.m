@@ -13,6 +13,8 @@
 - (instancetype)init {
   if (self = [super init]) {
     _eyes = 0;
+    _nose = 0;
+    _mouth = 0;
   }
 
   return self;
@@ -31,6 +33,38 @@
     _eyes = 4;
   } else {
     _eyes -= 1;
+  }
+}
+
+- (void)nextNose {
+  if (_nose + 1 > 4) {
+    _nose = 0;
+  } else {
+    _nose += 1;
+  }
+}
+
+- (void)prevNose {
+  if (_nose - 1 < 0) {
+    _nose = 4;
+  } else {
+    _nose -= 1;
+  }
+}
+
+- (void)nextMouth {
+  if (_mouth + 1 > 4) {
+    _mouth = 0;
+  } else {
+    _mouth += 1;
+  }
+}
+
+- (void)prevMouth {
+  if (_mouth - 1 < 0) {
+    _mouth = 4;
+  } else {
+    _mouth -= 1;
   }
 }
 

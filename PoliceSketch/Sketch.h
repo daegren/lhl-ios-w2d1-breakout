@@ -13,9 +13,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Sketch : NSObject
 
 @property(assign, nonatomic, readonly) int eyes;
+@property(assign, nonatomic, readonly) int nose;
+@property(assign, nonatomic, readonly) int mouth;
 
 - (void)nextEyes;
 - (void)prevEyes;
+
+- (void)nextNose;
+- (void)prevNose;
+
+- (void)nextMouth;
+- (void)prevMouth;
 
 @end
 
