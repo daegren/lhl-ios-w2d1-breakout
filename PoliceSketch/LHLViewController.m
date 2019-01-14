@@ -16,11 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *mouthImageView;
 
 @property(strong, nonatomic) Sketch *sketch;
-
-@property(strong, nonatomic) NSArray *eyesImages;
-@property(strong, nonatomic) NSArray *noseImages;
-@property(strong, nonatomic) NSArray *mouthImages;
-
 @end
 
 @implementation LHLViewController
@@ -30,9 +25,6 @@
     // Do any additional setup after loading the view, typically from a nib.
 
   self.sketch = [[Sketch alloc] init];
-  self.eyesImages = @[[UIImage imageNamed:@"eyes_1"],[UIImage imageNamed:@"eyes_2"],[UIImage imageNamed:@"eyes_3"],[UIImage imageNamed:@"eyes_4"],[UIImage imageNamed:@"eyes_5"]];
-  self.noseImages = @[[UIImage imageNamed:@"nose_1"],[UIImage imageNamed:@"nose_2"],[UIImage imageNamed:@"nose_3"],[UIImage imageNamed:@"nose_4"],[UIImage imageNamed:@"nose_5"]];
-  self.mouthImages = @[[UIImage imageNamed:@"mouth_1"],[UIImage imageNamed:@"mouth_2"],[UIImage imageNamed:@"mouth_3"],[UIImage imageNamed:@"mouth_4"],[UIImage imageNamed:@"mouth_5"]];
 }
 
 #pragma mark - Actions
@@ -71,9 +63,10 @@
 #pragma mark - Private Helpers
 
 - (void) updateImageViews {
-  self.eyesImageView.image = self.eyesImages[self.sketch.eyes];
-  self.noseImageView.image =  self.noseImages[self.sketch.nose];
-  self.mouthImageView.image = self.mouthImages[self.sketch.mouth];
+  self.eyesImageView.image = [self.sketch imageForSection:Eyes];
+  self.noseImageView.image =  [self.sketch imageForSection:Nose];
+  self.mouthImageView.image = [self.sketch imageForSection:Mouth];
 }
+
 
 @end

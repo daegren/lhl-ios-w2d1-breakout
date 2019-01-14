@@ -83,9 +83,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="eyesImageView" destination="aFc-k7-zB4" id="L8q-YS-UPj"/>
-                        <outlet property="mouthImageView" destination="r0W-93-Fqx" id="1SW-uC-yie"/>
-                        <outlet property="noseImageView" destination="Cx4-Zd-Ivw" id="XGP-Al-zkf"/>
+                        <outlet property="eyesImageView" destination="aFc-k7-zB4" id="bli-cE-u0u"/>
+                        <outlet property="mouthImageView" destination="r0W-93-Fqx" id="6b4-wz-4bk"/>
+                        <outlet property="noseImageView" destination="Cx4-Zd-Ivw" id="gai-ng-mbg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

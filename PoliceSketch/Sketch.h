@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 typedef enum SketchSection {
   Eyes, Nose, Mouth
@@ -22,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)next:(SketchSection) section;
 - (void)prev:(SketchSection) section;
+
+- (UIImage *)imageForSection:(SketchSection) section;
 
 @end
 

@@ -56,6 +56,36 @@
   }
 }
 
+- (UIImage *)imageForSection:(SketchSection) section {
+  NSString *sectionName;
+  int value;
+
+  switch (section) {
+    case Eyes:
+      sectionName = @"eyes";
+      value = _eyes;
+      break;
+
+    case Nose:
+      sectionName = @"nose";
+      value = _nose;
+      break;
+
+    case Mouth:
+      sectionName = @"mouth";
+      value = _mouth;
+      break;
+
+    default:
+      break;
+  }
+
+  NSString *imageName = [NSString stringWithFormat:@"%@_%i", sectionName, value + 1];
+  return [UIImage imageNamed:imageName];
+}
+
+#pragma mark - Private Helpers
+
 - (int)nextValue:(int)value {
   if (value + 1 > 4) {
     return 0;
