@@ -20,52 +20,56 @@
   return self;
 }
 
-- (void)nextEyes {
-  if (_eyes + 1 > 4) {
-    _eyes = 0;
-  } else {
-    _eyes += 1;
+- (void)next:(SketchSection) section {
+  switch (section) {
+    case Eyes:
+      _eyes = [self nextValue:_eyes];
+      break;
+    case Nose:
+      _nose = [self nextValue:_nose];
+      break;
+
+    case Mouth:
+      _mouth = [self nextValue:_mouth];
+      break;
+
+    default:
+      break;
   }
 }
 
-- (void)prevEyes {
-  if (_eyes - 1 < 0) {
-    _eyes = 4;
-  } else {
-    _eyes -= 1;
+- (void)prev:(SketchSection) section {
+  switch (section) {
+    case Eyes:
+      _eyes = [self prevValue:_eyes];
+      break;
+    case Nose:
+      _nose = [self prevValue:_nose];
+      break;
+
+    case Mouth:
+      _mouth = [self prevValue:_mouth];
+      break;
+
+    default:
+      break;
   }
 }
 
-- (void)nextNose {
-  if (_nose + 1 > 4) {
-    _nose = 0;
-  } else {
-    _nose += 1;
+- (int)nextValue:(int)value {
+  if (value + 1 > 4) {
+    return 0;
   }
+
+  return value + 1;
 }
 
-- (void)prevNose {
-  if (_nose - 1 < 0) {
-    _nose = 4;
-  } else {
-    _nose -= 1;
+- (int)prevValue:(int)value {
+  if (value - 1 < 0) {
+    return 4;
   }
-}
 
-- (void)nextMouth {
-  if (_mouth + 1 > 4) {
-    _mouth = 0;
-  } else {
-    _mouth += 1;
-  }
-}
-
-- (void)prevMouth {
-  if (_mouth - 1 < 0) {
-    _mouth = 4;
-  } else {
-    _mouth -= 1;
-  }
+  return value - 1;
 }
 
 @end

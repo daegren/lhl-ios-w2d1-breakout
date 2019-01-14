@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum SketchSection {
+  Eyes, Nose, Mouth
+} SketchSection;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Sketch : NSObject
@@ -16,14 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(assign, nonatomic, readonly) int nose;
 @property(assign, nonatomic, readonly) int mouth;
 
-- (void)nextEyes;
-- (void)prevEyes;
-
-- (void)nextNose;
-- (void)prevNose;
-
-- (void)nextMouth;
-- (void)prevMouth;
+- (void)next:(SketchSection) section;
+- (void)prev:(SketchSection) section;
 
 @end
 

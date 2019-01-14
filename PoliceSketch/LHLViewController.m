@@ -38,32 +38,32 @@
 #pragma mark - Actions
 
 - (IBAction)eyesNext:(id)sender {
-  [self.sketch nextEyes];
+  [self.sketch next:Eyes];
   [self updateImageViews];
 }
 
 - (IBAction)eyesPrev:(id)sender {
-  [self.sketch prevEyes];
+  [self.sketch prev:Eyes];
   [self updateImageViews];
 }
 
 - (IBAction)noseNext:(id)sender {
-  [self.sketch nextNose];
+  [self.sketch next:Nose];
   [self updateImageViews];
 }
 
 - (IBAction)nosePrev:(id)sender {
-  [self.sketch prevNose];
+  [self.sketch prev:Nose];
   [self updateImageViews];
 }
 
 - (IBAction)mouthNext:(id)sender {
-  [self.sketch nextMouth];
+  [self.sketch next:Mouth];
   [self updateImageViews];
 }
 
 - (IBAction)mouthPrev:(id)sender {
-  [self.sketch prevMouth];
+  [self.sketch prev:Mouth];
   [self updateImageViews];
 }
 
